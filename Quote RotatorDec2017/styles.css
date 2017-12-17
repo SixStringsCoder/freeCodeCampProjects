@@ -1,0 +1,135 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+/* BACKGROUND */
+#root{
+  background: #fff url("images/paper_greenBG_xs_mobile.jpg") no-repeat center top;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 85vh;
+}
+
+/* QUOTE AREA */
+.quoteBank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: 50%;
+}
+
+@keyframes fadeIn {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+}
+
+@-webkit-keyframes fadeIn {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+}
+
+.quoteText {
+  font-size: 1.4em;
+  font-family: 'Muli', sans-serif;
+  color: black;
+  line-height: 150%;
+  text-align: center;
+  text-justify: inter-word;
+  -webkit-animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.quoteText span {
+  color: #524739;
+  font-style: italic;
+}
+
+/* BUTTON AREA */
+#btnArea {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #3a3926;
+  width: 100vw;
+  height: 15vh;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  font-size: .8em;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  background-color: #e7e8db;
+  color: #251308;
+  border-radius: 5px;
+  width: 10rem;
+  padding: .7rem;
+  outline: none;
+}
+
+/* DropDown Selector */
+
+.styled-select {
+   height: 29px;
+   overflow: hidden;
+   width: 11rem;
+   height: 2.5rem;
+   background-color: #000;
+   color: #fff;
+   padding: 5px;
+   font-size: 1rem;
+   outline: none;
+   border: white;
+}
+
+
+/* MEDIA QUERY */
+@media only screen and (min-width: 500px) {
+
+  #root{
+    background: #fff url("images/paper_greenBG_landscape.jpg") no-repeat center top;
+  }
+
+  .quoteText {
+    font-size: 1.4em;
+    margin-top: 3rem;
+  }
+
+}
+
+@media only screen and (min-width: 767px) {
+
+  .quoteText {
+    font-size: 2.4em;
+    margin-bottom: 7rem;
+  }
+
+}
+
+@media only screen and (min-width: 1300px) {
+
+  .quoteText {
+    font-size: 2.4em;
+    margin-bottom: 10rem;
+  }
+
+   #root{
+    background: #fff url("images/paper_greenBG_desktop.jpg") no-repeat center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 85vh;
+  }
+
+}
