@@ -1,7 +1,8 @@
-// import { quoteBank } from './daily_words.one_loop/';
+// This is a quote rotator using JavaScript, jQuery, and CSS.  It was an assignment from freecodecamp.org.
+// Created by Steve Hanlon Dec. 2017
 
 
-// Storage banks to populate quoteBank once it's empty
+// Quote storage banks to populate quoteStage array
 const quoteStorage = {
   philosophers: [
     "With good will for the entire cosmos,<br> cultivate a limitless heart:<br> Above, below, & all around, unobstructed,<br> without hostility or hate.<br><span>&mdash;Buddha</span>",
@@ -9,7 +10,12 @@ const quoteStorage = {
     "Be yourself, everyone else is already taken.<br><span>&mdash;Oscar Wilde</span>",
     "In three words I can sum up everything about life: it goes on.<br><span>&mdash;Robert Frost</span>",
     "If you tell the truth, you don't have to remember anything.<br><span>&mdash;Mark Twain</span>",
-    "Without music, life would be a mistake.<br><span>&mdash;Friedrich Nietzsche</span>"
+    "Without music, life would be a mistake.<br><span>&mdash;Friedrich Nietzsche</span>",
+    "It is not a lack of love, but a lack of friendship that makes unhappy marriages.<br><span>&mdash;Friedrich Nietzsche</span>",
+    "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.<br><span>&mdash;Lao Tzu</span>",
+    "Wise men speak because they have something to say; Fools because they have to say something.<br><span>&mdash;Plato</span>",
+    "It is the mark of an educated mind to be able to entertain a thought without accepting it.<br><span>&mdash;Aristotle</span>",
+    "A wise man proportions his belief to the evidence.<br><span>&mdash;David Hume</span>"
   ],
 
   musicians: [
@@ -18,7 +24,11 @@ const quoteStorage = {
     "Be grateful for luck. Pay the thunder no mind.<br><span>&mdash;Eubie Blake</span>",
     "People will hire you and then tell you not to do what you were doing when they heard you.<br><span>&mdash;Art Blakey</span>",
     "Don't be a perfectionist... leave that to the classical musicians.<br><span>&mdash;Dave Brubeck</span>",
-    "The human being receives the pleasure from music, not from the argument over what it is.<br><span>&mdash;Ornette Coleman</span>"
+    "The human being receives the pleasure from music, not from the argument over what it is.<br><span>&mdash;Ornette Coleman</span>",
+    "Musicians want to be the loud voice for so many quiet hearts.<br><span>&mdash;Billy Joel</span>",
+    "All musicians are subconsciously mathematicians.<br><span>&mdash;Thelonius Monk</span>",
+    "One good thing about music, when it hits you, you feel no pain.<br><span>&mdash;Bob Marley</span>",
+    "Music is a safe kind of high.<br><span>&mdash;Jimi Hendrix</span>"
   ],
 
   scientists: [
@@ -30,16 +40,17 @@ const quoteStorage = {
     "A man who dares to waste one hour of time has not discovered the value of life.<br><span>&mdash;Charles Darwin</span>"
   ],
 }
-// "Staged" quote bank picked from when Random button is clicked
+
+// STAGED quote bank which is picked from when Quote button is clicked
 const quoteStage = [];
 
-// Fills up quoteStage
+// FILLS UP quoteStage array
 const fillquoteStage = (quoteGroup) => {
   quoteGroup.map(quote => quoteStage.push(quote));
-  console.log(quoteStage);
+  // console.log(quoteStage);
 }
 
-// Empties quoteStage
+// EMPTIES quoteStage
 const clearquoteStage = () => {
   while(quoteStage.length > 0) {
     quoteStage.pop();
@@ -47,52 +58,65 @@ const clearquoteStage = () => {
   }
 }
 
-// Select a quote bank to populate empty array quoteStage
+// SELECTS a quote array to populate empty const quoteStage array
 $('#quoteSelector').on('change', function(event) {
   event.preventDefault();
   if (quoteStage.length > 0) {
     clearquoteStage();
   }
   // Access quotes from quoteStorge object through selecting a key
-  let key = event.target.value;
-  let addNewQuotes = quoteStorage[key];
-  // Move those quotes to the quoteStage
+  const key = event.target.value;
+  const addNewQuotes = quoteStorage[key];
+  // Move those quotes to the quoteStage array
   fillquoteStage(addNewQuotes);
-  console.log(event.target.value);
 });
 
-
-// Uses 'Random' button to advance to next random quote
+// CLICK 'Quote' button to pick a random number
 $('#clicker').on('click', function() {
-  let onScreen = randomPick(quoteStage);
-  $('#root').html('<div class="quoteBank">' + '<p class="quoteText">' + onScreen + '</p>' + '</div>');
+  let onStage = randomPick(quoteStage);
 });
 
-// Pick random index number to show random quote from quote bank
-const randomPick = (group) => {
-  const indexPick = Math.floor(Math.random() * group.length);
-    const quotePick = group[indexPick];
+// PICK RANDOM index number to show random quote from const quoteStage
+const randomPick = (quoteStageGroup) => {
+  // If quoteStage is empty, refill it again with current selected category of quotes
+  if (quoteStageGroup.length === 0) {
+    let refill = $('#quoteSelector').val();
+    fillquoteStage(quoteStorage[refill]);
+  } else {
+    // Generate random number which allow accessing quote array by index number
+    const indexPick = Math.floor(Math.random() * quoteStageGroup.length);
+    const quotePick = quoteStageGroup[indexPick];
+    showQuote(quotePick, indexPick);
+  }
+}
 
-    // Remove quote from quoteStage
-    quoteStage.splice(indexPick, 1);
-      console.log(`The quote is: ${quotePick}`);
-      console.log(quoteStage);
+// SHOW quote on the DOM
+const showQuote = (quotePicked, quoteIndex) => {
+  let onStage = quotePicked;
+  $('#root').html('<div class="quoteBank">' + '<p class="quoteText">' + onStage + '</p>' + '</div>');
+  // Remove quote from quoteStage array
+  quoteStage.splice(quoteIndex, 1);
+}
 
-    // Once quoteStage is empty, move all storageQuotes to quoteStage to refill it
-    if (quoteStage.length === 0) {
-        philosophers.map(quote => quoteStage.push(quote));
-    }
+// EMAIL Button
+function mailQuote() {
+  $('#email').on('click', function(event) {
+    event.preventDefault();
+    // Store quote then pass it to mail client
+    const getQuote = $('.quoteText').text();
+    window.location.href = `mailto:YourFriend?subject=Check%20Out%20This%20Quote&body=${getQuote}`;
+  });
+}
 
-    // Returns quote from quoteStage
-    return quotePick;
-} // end of randomPick
-
-
-// Timed showings of the quotes; nestled in an IIFE to start immediately
-function start() {
-  let onScreen = randomPick(quoteStage);
-  $('#root').html('<div class="quoteBank">' + '<p class="quoteText">' + onScreen + '</p>' + '</div>');
-
-  // Shows following quotes after time indicated
-  setInterval(start, 5000);
-};
+// TIMER Slider for quote machine to run automatically
+let timer = null; // Global variable so clearInterval will work with setInterval
+$('#timerSwitch').on('change', function() {
+  if ($(this).is(':checked')) {
+    timer = setInterval(randomPick, 5000, quoteStage);
+    console.log('Timer is on.');
+  }
+  else if (!$(this).is(':checked')) {
+    clearInterval(timer);
+    console.log('Timer is off.');
+  }
+});

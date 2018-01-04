@@ -42,14 +42,24 @@
 
 
     <div id="btnArea">
+      <!-- Rounded switch -->
+      <div id="switchArea">
+        <label class="switch">
+          <input id="timerSwitch" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <h5 class="autoWord">TIMER</h5>
+      </div>
+      <!-- Category selector -->
       <select class="styled-select" id="quoteSelector">
+        <option selected disabled>Pick a Category</option>
         <option value="philosophers" id="philosophers">philosophers</option>
         <option value="musicians" id="musicians">musicians</option>
         <option value="scientists" id="scientists">scientists</option>
       </select>
-
-      <button class="button" id="clicker">Random</button>
-      <button class="button" id="email">Email</button>
+      <!-- Show quote or email quote -->
+      <button class="button" id="clicker">Quote</button>
+      <button class="button" onclick="mailQuote()" id="email">Email</button>
     </div>
 
     <!-- <script crossorigin="anonymous" src="jquery-3.2.1.min.js"></script> -->
