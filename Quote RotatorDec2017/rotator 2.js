@@ -120,3 +120,11 @@ $('#timerSwitch').on('change', function() {
     console.log('Timer is off.');
   }
 });
+
+// OPENING INSTRUCTIONS on how to use the quote machine
+(function openInstructions() {
+  const instructions = "Pick a Category <br>Click the Quote button <br>or use the Timer.";
+  $("#root").html(
+    '<div class="quoteBank">' + '<p class="quoteText">' + instructions + "</p>" + "</div>"
+  );
+})();
