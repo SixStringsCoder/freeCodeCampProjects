@@ -1,0 +1,59 @@
+<main>
+  <h1>How's the Weather</h1>
+  <h3 class="temperature" id="fahrenheit">69&#176;F</h3>
+  <h3 class="temperature" id="celsius">20.5&#176;C</h3>
+  <img src="#" alt="" />
+</main>
+<footer>
+  ©2018 Steve Hanlon
+</footer>
+
+body {
+  font-size: 16px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 90vh;
+}
+
+button {
+  font-size: 3rem;
+  color: rebeccapurple;
+  padding: 1rem;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
+  border-radius: 5px;
+  outline: none;
+}
+
+button:active {
+  box-shadow: none;
+}
+
+h3 {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+#icon {
+  width: 25vw;
+  /* padding: 1rem; */
+}
+
+#description {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+footer {
+  /* height: 4vh; */
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid black;
+}

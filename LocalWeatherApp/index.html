@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>How's the Weather</title>
+  <!-- RESET CSS -->
+  <link rel="stylesheet" type="text/css" href="./reset.css">
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" type="text/css" href="./style.css">
+
+  <!-- GOOGLE FONTS -->
+
+</head>
+<body>
+  <main id="main">
+    <button onclick="howsTheWeather()" type="submit">How's the Weather</button>
+    <h3 class="temperature" id="fahrenheit"></h3>
+    <h3 class="temperature" id="celsius"></h3>
+    <div class="icon"></div>
+    <p id="description"></p>
+  </main>
+  <footer>
+    ©2018 Steve Hanlon
+  </footer>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="./api.js"></script>
+</body>
+</html>
