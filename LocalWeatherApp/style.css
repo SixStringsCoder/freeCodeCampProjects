@@ -1,29 +1,22 @@
-<main>
-  <h1>How's the Weather</h1>
-  <h3 class="temperature" id="fahrenheit">69&#176;F</h3>
-  <h3 class="temperature" id="celsius">20.5&#176;C</h3>
-  <img src="#" alt="" />
-</main>
-<footer>
-  ©2018 Steve Hanlon
-</footer>
-
 body {
-  font-size: 16px;
+  font-family: 'Quicksand', sans-serif;
 }
-
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 100vw;
   min-height: 90vh;
+  background-color: #f2f6f0;
+  color: #000;
 }
 
 button {
-  font-size: 3rem;
-  color: rebeccapurple;
+  font-family: 'Cabin', sans-serif;
+  font-size: 2rem;
+  background-color: #B23606;
+  color: #fff;
   padding: 1rem;
   border: 1px solid black;
   box-shadow: 1px 1px 1px black;
@@ -32,7 +25,20 @@ button {
 }
 
 button:active {
+  background-color: #E5901E;
+  color: #000;
   box-shadow: none;
+}
+
+.weatherResults {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  visibility: hidden;
+  border: 2px solid #E5901E;
+  border-radius: 25px;
 }
 
 h3 {
@@ -40,9 +46,16 @@ h3 {
   padding: 1rem;
 }
 
-#icon {
-  width: 25vw;
-  /* padding: 1rem; */
+.icon {
+  display: flex;
+  justify-content: center;
+  width: 15vw;
+  padding: 1rem;
+}
+
+.icon img {
+  width: 50%;
+  height: 50%;
 }
 
 #description {
@@ -55,5 +68,7 @@ footer {
   padding: 2rem;
   display: flex;
   justify-content: center;
+  background-color: #4C3A21;
   border-top: 1px solid black;
+  color: #fff;
 }
