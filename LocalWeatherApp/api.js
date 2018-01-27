@@ -43,19 +43,46 @@ function renderWeather(weather) {
   let fahrenheit = Math.round(weather.main.temp * 9/5 + 32) + '&#176;F';
   let celsius = Math.round(weather.main.temp) + '&#176;C';
   let description = weather.weather[0].description.toUpperCase();
-  // let weatherIcon = `<img id="icon" src=${icon} alt="${description}" />`;
+  const windDir = weather.wind.deg;
+  let windText = '';
+  let windSpeed = weather.wind.speed;
+  const windIcon = '<img src="./images/wind.png" />';
 
-    // add icons
-    if (weather.weather[0].main == "Rain") {
+
+    // add weather icons
+    if (weather.weather[0].main === "Rain" || weather.weather[0].main === "Drizzle") {
       $('.icon').html('<img src="./images/rainy.png" />');
-    } else if (weather.weather[0].main == "Clouds") {
+    } else if (weather.weather[0].main === "Clouds") {
       $('.icon').html('<img src="./images/cloudy.png" />');
+    } else if (weather.weather[0].main === "Snow") {
+      $('.icon').html('<img src="./images/snowy.png" />');
+    } else if (weather.weather[0].main === "Sun") {
+      $('.icon').html('<img src="./images/sunny.png" />');
     }
 
+    // Determine wind direction text
+    if (windDir <= 78.75 && windDir >= 11.25) {
+      windText = 'NE';
+    } else if (windDir <= 101.25) {
+      windText = 'E';
+    } else if (windDir <= 191.25) {
+      windText = 'S';
+    } else if (windDir <= 258.75) {
+      windText = 'SW';
+    } else if (windDir <= 281.25) {
+      windText = 'W';
+    } else if (windDir < 348.75) {
+      windText = 'NW';
+    } else if (windDir > 348.75 || windDir < 11.25) {
+      windText = 'N';
+    }
+
+  // Append to DOM
   $('.weatherResults').css("visibility", "visible");
   $('#fahrenheit').append(fahrenheit);
   $('#celsius').append(celsius);
   $('#description').append(description);
+  $('#wind').append(`${windSpeed} mph winds ${windIcon} from the ${windText}`);
 }
 
 function clearScreen() {
@@ -65,6 +92,7 @@ function clearScreen() {
   $('#celsius').empty();
   $('.icon').empty();
   $('#description').empty();
+  $('#wind').empty();
 }
 
 const howsTheWeather = function(){
