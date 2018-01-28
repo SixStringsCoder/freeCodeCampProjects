@@ -16,12 +16,18 @@
 <body>
   <main id="main">
     <button onclick="howsTheWeather()" type="submit">How's the Weather</button>
+    <!-- Wait Icon -->
+    <div id="waitIcon">
+      <a href="https://loading.io/spinner/custom/105502/" target="_blank">
+        <img src="./images/Ripple-1s-200px.gif" />
+      </a><span id="waitMsg">Transmitting Geo-Coordinates to Weather Station</span>
+    </div>
+
     <div class="weatherResults">
       <h3 class="temperature" id="fahrenheit"></h3>
       <h3 class="temperature" id="celsius"></h3>
       <div class="icon"></div>
       <p id="description"></p>
-
       <p id="wind"></p>
     </div>
   </main>
