@@ -9,18 +9,20 @@
   <link rel="stylesheet" type="text/css" href="reset.css">
   <!-- CUSTOM CSS -->
   <link type="text/css" rel="stylesheet" href="./styles.css" />
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Philosopher" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    
+
 
     <div class="overlay">
       <main>
         <h1 id="siteHeading">Crystalpedia</h1>
-        <h2>Ask the Crystal</h2>
+        <h2>The Free Encyclopedia</h2>
         <form>
           <input type="text" placeholder="Type a word" /><br / />
-          <button type="submit" name="submit">Give Me Answers</button>
+          <button type="submit" name="submit">Search</button>
         </form>
       </main>
     </div> <!--  END overlay-->
@@ -41,9 +43,16 @@
     </section>
 
     <footer>
-      2018&copy;Steve Hanlon
+      &copy;2018Steve Hanlon
     </footer>
 
   </div> <!--  END container-->
+<!-- jQuery -->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<!-- Custom JavaScript -->  
+<script src="./api.js"></script>
 </body>
 </html>
