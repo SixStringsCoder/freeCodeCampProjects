@@ -120,6 +120,7 @@ button:hover, button:active {
   padding: 2rem;
   margin: auto;
   max-width: 80vw;
+  justify-items: end;
 }
 
 .result {
