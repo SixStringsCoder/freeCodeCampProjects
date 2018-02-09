@@ -1,15 +1,17 @@
 // Fetch info from wikipedia summarizing search term
 const getSummary = term => {
-  const cors = 'https://cors-anywhere.herokuapp.com/'
+  const cors = 'https://cors-anywhere.herokuapp.com/';
+  const wikiUrl = 'https://en.wikipedia.org';
   // Test Using Wikimedia REST API
   // const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${term}`;
   // Test Using the MediaWiki API
-  const search = `${cors}https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages%7Cpageterms%7Cextracts&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail%7Cname&pithumbsize=50&pilimit=10&wbptterms=description%7Clabel&gpssearch=${term}&gpslimit=10`;
+  const search = `${cors}${wikiUrl}/w/api.php?action=query&format=json&prop=pageimages%7Cpageterms%7Cextracts&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail%7Cname&pithumbsize=150&pilimit=10&wbptterms=description%7Clabel&exsentences=2&gpssearch=${term}&gpslimit=10`;
   try {
     fetch(search)
     .then(response => response.json())
     .then(jsonResponse => {
       console.log(jsonResponse);
+      renderDetails(jsonResponse);
     })
   } catch(error) {
     console.error(error);
@@ -26,10 +28,32 @@ const getSummary = term => {
 //   })
 // }
 
+const renderDetails = (response) => {
+  $('#searchResults').empty();
 
-// Click button to call getSummary function based on input's value
-$('#submit').on('click', function() {
-    const searchTerm = $('#input').val();
+  const results = response.query.pages;
+  results.map((result, index) => {
+    let learnLink = `https://en.wikipedia.org/wiki/${results[index].title}`;
+    let image = results[index].thumbnail ? results[index].thumbnail.source : "No Image Available";
+    let extract = results[index].extract ? results[index].extract : "No information";
+    let text = results[index].terms.description ? results[index].terms.description[0] : results[index].terms.label[0];
+    let article = `
+    <article class="result">
+      <h3 class="resultTitle">${results[index].title}</h3>
+      <img class="resultImage" src=${image} alt=${results[index].title} />
+      <p class="resultText">${text}<br /> ${extract}</p>
+      <button class="learn"><a href=${learnLink} target="_blank">Learn More</a></button>
+    </article>`;
+    $('#searchResults').append(article);
+  });
+}
+
+
+
+// Click button to call getSummary function with input's value as the argument
+$('#btn').on('click', function(event) {
+    event.preventDefault();
+    const searchTerm = $('#term').val();
     console.log(searchTerm);
     getSummary(searchTerm);
-})
+});

@@ -144,7 +144,7 @@ button:hover, button:active {
 .resultImage {
   grid-area: image;
   width: 150px;
-  height: 150px;
+  height: auto;
   padding-right: 1rem;
 }
 
@@ -152,6 +152,7 @@ p {
   grid-area: extract;
   grid-row: 2 / 4;
   font-size: 1.3rem;
+  line-height: 150%;
   text-align: justify;
   padding-left: 1rem;
 }
@@ -170,6 +171,11 @@ button.learn {
   outline: none;
   transition: background-color .5s;
   margin-bottom: 1rem;
+}
+
+button.learn a {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* Footer */
