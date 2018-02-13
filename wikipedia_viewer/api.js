@@ -35,13 +35,13 @@ const renderDetails = (response) => {
   results.map((result, index) => {
     let learnLink = `https://en.wikipedia.org/wiki/${results[index].title}`;
     let image = results[index].thumbnail ? results[index].thumbnail.source : "No Image Available";
-    let extract = results[index].extract ? results[index].extract : "No information";
+    let extract = results[index].extract ? results[index].extract : "No extract available";
     let text = results[index].terms.description ? results[index].terms.description[0] : results[index].terms.label[0];
     let article = `
     <article class="result">
       <h3 class="resultTitle">${results[index].title}</h3>
       <img class="resultImage" src=${image} alt=${results[index].title} />
-      <p class="resultText">${text}<br /> ${extract}</p>
+      <p class="resultText"><span>Summary:</span> ${text}</p>
       <button class="learn"><a href=${learnLink} target="_blank">Learn More</a></button>
     </article>`;
     $('#searchResults').append(article);
@@ -52,7 +52,7 @@ const renderDetails = (response) => {
 
 // Click button to call getSummary function with input's value as the argument
 $('#btn').on('click', function(event) {
-    event.preventDefault();
+    // event.preventDefault();
     const searchTerm = $('#term').val();
     console.log(searchTerm);
     getSummary(searchTerm);
