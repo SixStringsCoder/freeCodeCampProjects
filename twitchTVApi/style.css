@@ -1,0 +1,85 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+main {
+  display: grid;
+  background-color: #f2f6f0;
+  color: #000;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(25, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 10px 20px;
+  justify-content: center;
+  grid-template-areas:
+  ". heading .
+  .channels ."
+}
+
+header {
+  grid-area: heading;
+  /* width: 100vw; */
+  padding: 50px;
+}
+
+#heading {
+  font-size: 3.5rem;
+}
+
+#subheading {
+  font-size: 2.5rem;
+}
+
+section.channel {
+  grid-area: channels;
+}
+
+/* button {
+  font-family: 'Cabin', sans-serif;
+  font-size: 2rem;
+  background-color: #B23606;
+  color: #fff;
+  padding: 1rem;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
+  border-radius: 5px;
+  outline: none;
+  transition: all .3s;
+}
+
+button:hover {
+  background-color: #59BF19;
+  color: #000;
+}
+
+button:active {
+  background-color: #4C3A21;
+  color: #FFF;
+  box-shadow: none;
+} */
+
+
+
+
+
+.icon {
+  display: flex;
+  justify-content: center;
+  width: 16vw;
+  padding: 1rem 0 0 1rem;
+}
+
+.icon img {
+  width: 50%;
+  height: 50%;
+}
+
+
+footer {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: #4C3A21;
+  border-top: 1px solid black;
+  color: #fff;
+}
