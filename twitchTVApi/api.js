@@ -11,14 +11,24 @@ const twitchApi = function() {
   const url = 'https://wind-bow.gomix.me/twitch-api/streams/';
   const summary = 'summary';
   const featured = 'featured';
-  // const gameSearch = '?game=Overwatch';
   const urlToFetch = `${cors}${url}${featured}`;
 
   return fetch(urlToFetch)
     .then(response => response.json())
     .then(jsonResponse => {
       console.log(jsonResponse);
-      let tvGuide = jsonResponse;
+      let tvGuide = jsonResponse.featured;
+      tvGuide.map(entry => {
+        return {
+          image: entry.image,
+          name: entry.stream.game,
+          followers: entry.stream.channel.followers,
+          text: entry.text,
+          logo: entry.stream.channel.logo,
+          preview: entry.stream.preview.medium,
+          url: entry.stream.channel.url,
+        }
+      })
     });
 }
 
@@ -62,7 +72,7 @@ twitchApi();
 //     windText = 'N';
 //   }
 //
-//   // Append to DOM
+  // Append to DOM
 //   $('.weatherResults').css("visibility", "visible");
 //   $('#fahrenheit').append(fahrenheit);
 //   $('#celsius').append(celsius);
