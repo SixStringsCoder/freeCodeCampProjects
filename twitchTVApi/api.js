@@ -7,30 +7,80 @@ const x = document.getElementById("main");
 // }
 
 
+/*=========================================================
+              Show Channel based on Search term
+=========================================================*/
+$('#submitBtn').on('click', function(event) {
+    event.preventDefault();
+    let searchTerm = $('#searchField').val();
+    console.log(searchTerm)
+    searchTwitch(searchTerm);
+});
 
-const twitchApi = function() {
+const searchTwitch = function(channel) {
+  // $('.channel').empty();
+  const cors = 'https://cors-anywhere.herokuapp.com/';
+  const users = 'https://wind-bow.glitch.me/twitch-api/users/';
+  const urlToFetch2 = `${cors}${users}${channel}`;
+
+  return fetch(urlToFetch2)
+    .then(response => response.json())
+    .then(jsonResponse => {
+      console.log(jsonResponse);
+      renderSearch(jsonResponse);
+    });
+}
+
+function renderSearch(channel) {
+    let url = `https://www.twitch.tv/${channel.name}`;
+    let channelRow =
+      `<section class="channel">
+        <div>
+          <div class="topInfo">
+            <img class="logo" src=${channel.logo} alt="logo" />
+            <h3 class="gameName">${channel.display_name}</h3>
+          </div>
+          <div class="description">
+            ${channel.bio}
+          </div>
+
+          <a class="viewChannelBtn" href=${url} target="_blank"><button>View Channel</button></a>
+        </div>
+      </section>`;
+
+    main.innerHTML += channelRow;
+}
+
+
+/*=========================================================
+              Show Featured Channels on TwitchTV
+=========================================================*/
+$('#featuredStreams').on('click', function(event) {
+    event.preventDefault();
+    console.log("featuredStreams fired")
+    twitchApiFeatured();
+});
+
+
+const twitchApiFeatured = function() {
+  // $('.channel').empty();
   const cors = 'https://cors-anywhere.herokuapp.com/';
   const url = 'https://wind-bow.gomix.me/twitch-api/streams/';
-  const users = 'https://wind-bow.glitch.me/twitch-api/users/';
-  const summary = 'summary';
   const featured = 'featured';
-  const user = "freecodecamp";
   const urlToFetch = `${cors}${url}${featured}`;
 
   return fetch(urlToFetch)
     .then(response => response.json())
     .then(jsonResponse => {
       let tvGuide = jsonResponse.featured;
-      console.log(jsonResponse);
+      // console.log(jsonResponse);
       renderTvGuide(tvGuide);
     });
 }
 
 
 function renderTvGuide(channels) {
-  console.log(channels);
   channels.map(entry => {
-
     let channelRow =
       `<section class="channel">
         <div>
@@ -54,29 +104,4 @@ function renderTvGuide(channels) {
   return channels;
 }
 
-twitchApi();
-
-  // Append to DOM
-//   $('.weatherResults').css("visibility", "visible");
-//   $('#fahrenheit').append(fahrenheit);
-//   $('#celsius').append(celsius);
-//   $('#description').append(description);
-//   $('#wind').append(`${windSpeed} mph winds ${windIcon} from the ${windText}`);
-// }
-//
-// function clearScreen() {
-//   // Clear out any existing weather info if present
-//   $('#waitIcon').css("visibility", "hidden");
-//   $('.weatherResults').css("visibility", "hidden");
-//   $('#fahrenheit').empty();
-//   $('#celsius').empty();
-//   $('.icon').empty();
-//   $('#description').empty();
-//   $('#wind').empty();
-// }
-//
-// // Button is clicked to start the program
-// const howsTheWeather = function(){
-//   clearScreen();
-//   getLocation();
-// }
+// twitchApiFeatured();

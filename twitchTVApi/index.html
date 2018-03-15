@@ -17,15 +17,17 @@
   <main id="main">
     <header>
       <h1 id="heading">Twitch TV Guide</h1>
-      <h2 id="subheading">Featured Streams</h2>
-      <form>
-        <input type="text" name="search" placeholder="search channel name"></input>
+      <form id="featuredForm">
+        <button id="featuredStreams" type="submit" name="submit">Featured Streams</button>
+      </form>
+      <form id="searchForm">    
+        <input id="searchField" type="text" name="search" placeholder="search channel name"></input>
         <button id="submitBtn" type="submit" name="submit">Search</button>
       </form>
     </header>
-
-
   </main>
+
+  <div id="error"></div>
 
   <footer>
     ©2018 Steve Hanlon
