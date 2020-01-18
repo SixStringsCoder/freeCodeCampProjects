@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Metal+Mania|Noticia+Text&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Rock Camp 2020 Survey Form</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">In the Band</h1>
+      <div id="icon-cont">
+        <img id="icon" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.VHiPJoHM_IW1A3HHbUA5vQHaHa%26pid%3DApi&f=1" alt="heavu metal hand gesture">
+      </div>
+      <h2 id="sub-title">2020 Rock Camp</h2>
+    </header>
+
+    <section id="form-cont">
+      <form id="survey-form">
+        <p id="description">How was your experience?</p>
+        <!-- Input Fields -->
+        <label for="name-label" id="name-label">Name:</label>
+        <input type="text" id="name" placeholder="Full name (required)" minlength="1" maxlength="35" required />
+
+        <label for="email-label" id="email-label">Email:</label>
+        <input type="email" id="email" placeholder="Your Email (required)" minlength="6" maxlength="35" required />
+
+        <label for="number-label" id="number-label">Age:</label>
+        <input type="number" id="number" min="10" max="100" minlength="2" maxlength="3" placeholder="(optional)" />
+
+        <!-- Select Menu-->
+        <select name="instrument" id="dropdown">
+          <option value="instrument" disabled selected>🎶 Your Instrument</option>
+          <option value="vocals">vocals</option>
+          <option value="e-gtr">electric guitar</option>
+          <option value="ac-gtr">acoustic guitar</option>
+          <option value="drums">drums</option>
+          <option value="percussion">percussion</option>
+          <option value="bass">bass</option>
+          <option value="keys">keyboards</option>
+          <option value="other">other</option>
+        </select>
+
+        <fieldset id="radio-btns-cont">
+          <h3>Gender</h3>
+          <label for="male">
+            <input type="radio" value="male" name="gender" id="male">Male
+          </label>
+          <label for="female">
+            <input type="radio" value="female" name="gender" id="female">Female
+          </label>
+          <label for="non-binary">
+            <input type="radio" value="non-binary" name="gender" id="non-binary">Non-binary
+          </label>
+          <hr />
+          <h3>Music Level</h3>
+          <label for="beginner">
+            <input type="radio" value="beginner" name="Level" id="beginner">Beginner
+          </label>
+          <label for="intermediate">
+            <input type="radio" value="intermediate" name="Level" id="intermediate">Intermediate
+          </label>
+          <label for="advanced">
+            <input type="radio" value="advanced" name="Level" id="advanced">Advanced
+          </label>
+          <label for="pro">
+            <input type="radio" value="pro" name="Level" id="pro">Pro
+          </label>
+        </fieldset>
+
+        <fieldset id="checkboxes-cont">
+          <h3>I want more...</h3>
+          <label for="live-shows">
+            <input type="checkbox" value="live-shows" id="live-shows">Live shows
+          </label>
+          <label for="jams">
+            <input type="checkbox" value="jams" id="jams">Jam sessions
+          </label>
+          <label for="recording">
+            <input type="checkbox" value="recording" id="recording">Recording experiences
+          </label>
+          <label for="rotate-ts">
+            <input type="checkbox" value="rotate-ts" id="rotate-ts">Rotating teachers
+          </label>
+                <label for="read-music">
+            <input type="checkbox" value="recording" id="reading-music">Music reading
+          </label>
+          <label for="rhy-sect-practice">
+            <input type="checkbox" value="rotate-ts" id="rhy-sect-practice">Rhythm playing
+          </label>
+          <hr />
+          <h3>Music styles?</h3>
+          <label for="funk">
+            <input type="checkbox" value="funk" id="funk">more funk
+          </label>
+          <label for="punk">
+            <input type="checkbox" value="punk" id="punk">more punk
+          </label>
+          <label for="metal">
+            <input type="checkbox" value="metal" id="metal">more metal
+          </label>
+          <label for="pop">
+            <input type="checkbox" value="pop" id="pop">more pop
+          </label>
+          <label for="folk">
+            <input type="checkbox" value="folk" id="folk">more folk
+          </label>
+          <label for="fusion">
+            <input type="checkbox" value="fusion" id="fusion">more fusion
+          </label>
+          <label for="cowbell">
+            <input type="checkbox" value="cowbell" id="cowbell">more cowbell
+          </label>
+        </fieldset>
+
+        <h4>final chorus...</h4>
+        <textarea name="last-thoughts" id="last-thoughts" cols="30" rows="10" maxlength="250" placeholder="Any last screams in 250 characters or less?"></textarea>
+
+        <div id="btn-cont">
+          <button type="submit" id="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+
+    <div id="thank-you-cont">
+        <img id="thank-you-fist" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Funiversal-signs-symbols%2F128%2Fhand-rock-128.png&f=1&nofb=1" alt="heavy metal hand gesture">
+        <h3 id="thank-you-words">Thank you!</h3>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>

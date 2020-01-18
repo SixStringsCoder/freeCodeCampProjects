@@ -1,0 +1,322 @@
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noticia Text', serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background: #aaa url(https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ) no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: rgba(100, 0, 0, .95);
+  padding-bottom: .7rem;
+  margin-bottom: 1rem;
+}
+
+#icon-cont {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  padding: 8px;
+}
+
+#icon {
+  max-width: 100%;
+  cursor: pointer;
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0); transform: rotate(0) }
+  to { -webkit-transform: rotate(360deg); transform: rotate(360deg) }
+}
+@keyframes spin {
+  from { -webkit-transform: rotate(0); transform: rotate(0) }
+  to { -webkit-transform: rotate(360deg); transform: rotate(360deg) }
+}
+#icon-cont:hover {
+  -webkit-animation: spin .1s 5 linear;
+          animation: spin .1s 5 linear;
+  background-color: rgba(255, 255, 255, 1);
+}
+#icon:active {
+  max-width: 104%;
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: 'Metal Mania', cursive;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px black;
+}
+
+#title {
+  color: #fff;
+  font-size: 2.9rem;
+  margin: .5rem 1rem .4rem;
+}
+
+#sub-title {
+  color: rgba(255, 255, 255, .8);
+  font-size: 2rem;
+  margin: .8rem 1rem .2rem;
+}
+
+
+/* Form area */
+#description {
+  width: 100%;
+  font-size: 1.5rem;
+  color: #E5C32A;
+  text-align: center;
+}
+
+#form-cont {
+  width: 90%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+/*   border: .5px solid black; */
+  border-radius: .3rem;
+  background-color: rgba(0, 0, 0, .89);
+  margin-bottom: 2rem;
+}
+
+#survey-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.3rem;
+  padding: 1rem;
+}
+
+label {
+  margin-left: .5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#survey-form > label {
+  color: #ddd;
+}
+
+input,
+select {
+  margin: .5rem;
+  border: 1px solid black;
+  padding: .1rem .5rem;
+  overflow: auto;
+}
+
+#survey-form > label + input {
+  width: 97%;
+}
+
+input#name:valid,
+input#email:valid {
+  border: 2px solid green;
+}
+
+input#name:invalid,
+input#email:invalid {
+  border: 2px solid indianred;
+}
+
+select#dropdown {
+  width: 97%;
+  margin: 2rem .3rem;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+
+/* Radio and Checkbox Inputs */
+fieldset {
+  background-color: #ddd;
+}
+
+#radio-btns-cont,
+#checkboxes-cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 300px;
+}
+
+fieldset h3 {
+  margin: .5rem;
+  color: #B00000;
+}
+
+h4 {
+  margin: 1rem .5rem .5rem;
+  color: #ddd;
+}
+
+/* Textarea*/
+textarea {
+  padding: .5rem;
+  font-size: 1.1rem;
+  font-family: 'Noticia Text', serif;
+  line-height: 150%;
+}
+
+
+/* Submit Btn */
+#btn-cont {
+  width: 300px;
+  padding: 1rem .3rem .3rem;
+  text-align: center;
+}
+
+#submit {
+  padding: .3rem 1.5rem .5rem;
+  font-size: 1.3rem;
+  background-color: black;
+  -webkit-box-shadow: 0 0 3px black;
+          box-shadow: 0 0 3px black;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
+  transition: .2s all;
+}
+#submit:hover {
+  padding: .3rem 1.5rem .5rem;
+  font-size: 1.3rem;
+  background-color: yellowgreen;
+  color: black;
+  font-weight: bold;
+}
+#submit:active {
+  background-color: #B00000;
+  -webkit-box-shadow: inset 0 0 3px black;
+          box-shadow: inset 0 0 3px black;
+  color: white;
+  outline: none;
+}
+
+/* Ending sequence after form submit */
+#thank-you-cont {
+  position: absolute;
+  top: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 4rem;
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: 50%;
+  -webkit-transform: scale(0, 0);
+      -ms-transform: scale(0, 0);
+          transform: scale(0, 0);
+}
+
+#thank-you-fist {
+  width: 28vw;
+  height: 28vw;
+}
+
+#thank-you-words {
+  margin: .3rem;
+  font-size: 2.2rem;
+  color: black;
+}
+
+@-webkit-keyframes fadeout {
+  from { -webkit-transform: scale(1, 1); transform: scale(1, 1); }
+  to { -webkit-transform: scale(0, 0); transform: scale(0, 0); }
+}
+
+@keyframes fadeout {
+  from { -webkit-transform: scale(1, 1); transform: scale(1, 1); }
+  to { -webkit-transform: scale(0, 0); transform: scale(0, 0); }
+}
+
+@-webkit-keyframes fadein {
+  from { -webkit-transform: scale(0, 0); transform: scale(0, 0); }
+  to { -webkit-transform: scale(1, 1); transform: scale(1, 1); }
+}
+
+@keyframes fadein {
+  from { -webkit-transform: scale(0, 0); transform: scale(0, 0); }
+  to { -webkit-transform: scale(1, 1); transform: scale(1, 1); }
+}
+
+.fadeOut {
+  -webkit-animation: fadeout .5s ease-in-out forwards;
+          animation: fadeout .5s ease-in-out forwards;
+  position: relative;
+  top: 0;
+}
+
+.fadeIn {
+  -webkit-animation: fadein .5s linear .5s forwards;
+          animation: fadein .5s linear .5s forwards;
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
