@@ -6,6 +6,8 @@ Objective: Build a CodePen.io app that is functionally similar to this: https://
 
 Use HTML, JavaScript, and CSS.  Make it responsive design with HTML generated form-validation.
 
+[View my code at codePen](https://codepen.io/SixStringsCoder/pen/9849458badf4aba540acaf8e29f50ef1)
+
 ![Finished project screenshot](screenshot_survey_form.png)
 
 Attribution:
